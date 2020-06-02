@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Code is simple and easy to implement stdin and flush is used to clean the memory buffer which gets filled */
+struct node
+{
+	int data;
+	struct node *next;
+} *newnode,*head,*tail,*new1;
+
+void traverse(struct node* r1)
+{
+	
+	printf("NOW SHOWING THE TRAVERSAL RESULTS :");
+
+	
+
+	while(r1!=NULL)
+	{
+		printf("%d \n",r1->data);
+		r1=r1->next;
+	}
+    
+}
+main()
+{
+	int value,val;
+	char conti;
+	  head=NULL;
+	  tail=NULL;
+	do
+	{
+		newnode=(struct node *)malloc(sizeof(struct node));
+		scanf("%d",&value);
+		newnode->data=value;
+		newnode->next=NULL;
+		
+		if(head==NULL)
+		{
+			head=newnode;
+			tail=newnode;
+		}
+		else
+		{
+			tail->next=newnode;
+			tail=newnode;
+			
+		}
+		printf("press -Y continue and N to exit ");
+		fflush(stdin);
+		scanf("%c",&conti);
+		
+	}while(conti=='Y');
+	
+
+traverse(head);
+	
+  
+  return 0;
+}
